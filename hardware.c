@@ -94,8 +94,9 @@ static int load(const char *id,
         status = -EINVAL;
         goto done;
     }
-
-    hmi->dso = handle;
+    // psw0523 fix for lights module loading segfault
+    if (strcmp(id, "lights"))
+	    hmi->dso = handle;
 
     /* success */
     status = 0;
