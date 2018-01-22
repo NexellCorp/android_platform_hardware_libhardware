@@ -772,9 +772,9 @@ typedef struct hwc_composer_device_1 {
     int (*setCursorPositionAsync)(struct hwc_composer_device_1 *dev, int disp, int x_pos, int y_pos);
 
     /*
-     * Reserved for future use. Must be NULL.
+     * Nexell extension for framebuffer target sync when no use sync mechanism
      */
-    void* reserved_proc[1];
+    int (*setFramebufferTarget)(struct hwc_composer_device_1 *dev, int32_t id, hwc_layer_1_t *layer);
 
 } hwc_composer_device_1_t;
 
